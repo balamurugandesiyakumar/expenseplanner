@@ -1,0 +1,164 @@
+.exp-section{
+    height: 100%;
+}
+
+// Header Section
+.header-section{
+    background-color: #DDDDDD;
+    padding:30px 15px;
+    font-size: 18px;
+    h6{
+        margin: 0px;
+        color:#A09EA0;
+        span:first-child{
+            color:#5FAC5A;
+            padding-right: 15px;
+
+        }
+        span:last-child{
+            color:#D1453D;
+        }
+    }
+    h2{
+        color:#363C48;
+        margin: 13px 0px;
+    }
+}
+
+// Expense List
+
+.explist-section{
+    padding:15px;
+    background-color: #fff;
+    max-height: 58.5%;
+    overflow-y:auto;
+    .list-section{
+        
+        li{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #181818;
+            padding:15px 0px;
+            font-size: 18px;
+
+            &:last-child{
+                border-bottom: none;
+            }
+            span{
+                font-size: 12px;
+            }
+            h4{
+                margin: 5px 0px;
+                font-size: 20px;
+            }
+            .list-name{
+                color:#292657;
+                font-weight: 500;
+            }
+            i{
+                font-size: 26px;
+            }
+        }
+        
+    }
+}
+
+// Footer-section
+.footer-section{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    padding: 30px 15px;
+    text-align: center;
+    button{
+        border: 2px solid #0D0D0D;
+        padding:10px 20px;
+        width: 150px;
+        color: #fff;
+        margin: 0px 15px;
+        box-shadow: 3px 3px 1px 1px #0d0d0d;
+        
+        &:first-child{
+            background-color: #4A9E13;
+        }
+        &:last-child{
+            background-color: #CF2B28;
+        }
+    }
+}
+
+
+// Modal Popup
+
+.modal-bg{
+    position: fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .modal-popup{
+        background-color: #fff;
+        min-width: 400px;
+        box-shadow:0px 1px 8px 0px rgba(0, 0, 0, 0.2),
+    0px 3px 4px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 3px -2px rgba(0, 0, 0, 0.12);
+    }
+}
+.modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #bfbfbf;
+    h4{
+        margin: 0px;
+    }
+    i{
+        cursor: pointer;
+    }
+}
+.modal-content{
+    padding: 15px;
+    .field-col{
+        margin-bottom: 15px;
+        &:last-child{
+            text-align: right;
+        }
+    }
+    label{
+        display: block;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    .field-control{
+        padding: 10px;
+        width: calc(100% - 24px);
+    }
+    .react-datepicker-wrapper{
+        width:100%;
+    }
+    .btn-success{
+        background: #188418;
+        padding:10px 30px;
+        border:none;
+        color:#fff;
+        box-shadow:  0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+    border-radius: 3px;
+    }
+    p{
+        text-align: center;
+    background: #3d841a;
+    padding: 8px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 500;
+    }
+}
