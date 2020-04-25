@@ -170,6 +170,12 @@
 
 @media (max-width:576px){
     .modal-bg .modal-popup{
-        width:100%;
+        width:calc(100% - 30px);
+    }
+    .footer-section{
+        padding:15px;
+        button{
+            width:120px;
+        }
     }
 }
