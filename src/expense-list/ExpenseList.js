@@ -41,7 +41,7 @@ class ExpenseList extends Component {
 
 
     handleChange = date => {
-        debugger;
+
 
         this.setState({
             startDate: date
@@ -50,9 +50,10 @@ class ExpenseList extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+
         if (this.state.startDate !== '' && this.getName.value !== '' && this.getAmount.value !== '') {
             this.setState({ disabled: true })
-            const expDate = dateFormat(this.state.startDate, "mmm d yyyy");
+            const expDate = dateFormat(this.state.startDate, "d.m.yyyy");
 
             const expName = this.getName.value;
             const expAmount = parseInt(this.getAmount.value);
@@ -80,9 +81,12 @@ class ExpenseList extends Component {
             });
 
             this.setState({ successMsg: true })
-
+            // this.getName.value = "";
+            // this.getAmount.value = "";
+            this.myFormRef.reset();
             setTimeout(() => {
                 this.setState({ show: false })
+
             }, 2000);
 
         }
@@ -93,18 +97,21 @@ class ExpenseList extends Component {
     deleteExpense = (explist) => {
         this.setState({ totalIncome: 0, totalSpending: 0 })
         this.props.dispatch({ type: 'DELETE_POST', id: explist.id })
-        const expenses = this.props.expense;
-        for (let i = 0; i < expenses.length; i++) {
-            if (expenses[i].type === 'income') {
-                this.setState({ totalIncome: this.state.totalIncome + expenses[i].expamount })
-            } else if (expenses[i].type === 'spending') {
-                this.setState({ totalSpending: this.state.totalSpending + expenses[i].expamount })
+        setTimeout(() => {
+            const expenses = this.props.expense;
+            for (let i = 0; i < expenses.length; i++) {
+                if (expenses[i].type === 'income') {
+                    this.setState({ totalIncome: this.state.totalIncome + expenses[i].expamount })
+                } else if (expenses[i].type === 'spending') {
+                    this.setState({ totalSpending: this.state.totalSpending + expenses[i].expamount })
+                }
             }
-        }
+        }, 0);
+
     }
 
     addIncome = () => {
-        this.setState({ show: true, modalTitle: 'Add Income', successMsg: false })
+        this.setState({ show: true, modalTitle: 'Add Income', successMsg: false, disabled: false })
     }
 
     closeModal = () => {
@@ -112,7 +119,7 @@ class ExpenseList extends Component {
     }
 
     addSpending = () => {
-        this.setState({ show: true, modalTitle: 'Add Spending', successMsg: false })
+        this.setState({ show: true, modalTitle: 'Add Spending', successMsg: false, disabled: false })
     }
 
     render() {
@@ -168,7 +175,7 @@ class ExpenseList extends Component {
                             <h4>{this.state.modalTitle}</h4>
                             <i class="fas fa-times" onClick={this.closeModal}></i>
                         </div>
-                        <form className="modal-content" onSubmit={this.handleSubmit}>
+                        <form className="modal-content" onSubmit={this.handleSubmit} ref={(el) => this.myFormRef = el}>
                             <div className="field-col">
                                 <label>Expense Date</label>
                                 <DatePicker className="field-control"

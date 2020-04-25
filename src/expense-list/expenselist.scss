@@ -45,6 +45,9 @@
             &:last-child{
                 border-bottom: none;
             }
+            div{
+                width:33%
+            }
             span{
                 font-size: 12px;
             }
@@ -58,6 +61,8 @@
             }
             i{
                 font-size: 26px;
+                float:right;
+                cursor: pointer;
             }
         }
         
@@ -160,5 +165,11 @@
     border-radius: 5px;
     color: #fff;
     font-weight: 500;
+    }
+}
+
+@media (max-width:576px){
+    .modal-bg .modal-popup{
+        width:100%;
     }
 }
